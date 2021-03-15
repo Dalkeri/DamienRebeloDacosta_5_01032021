@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/teddy.js" defer></script>
+    <script src="../js/cartItem.js" defer></script>
+    <script src="../js/item.js" defer></script>
+
+    <title>Produit - Orinono</title>
+</head>
+<body>
+    <h1>BIENVENUE</h1>
+    <a href="../index.html">Retour</a>
+    <h2>Voici les infos de cet ours</h2>
+    <main id="teddy">
+        <img id="teddy__img" src="" alt="">
+        <h3 id="teddy__title"></h3>
+        <p id="teddy__price"></p>
+        <p id="teddy__description"></p>
+
+        <label id="colorsLabel" for="color-select">Choisissez une couleur :</label>
+        <select id="colorSelect" name="colors" ></select>
+        <div>
+            <label id="quantity">quantitée :</label>
+            <button id="quantity_less">-</button>
+            <label id="quantity_label">1</label>
+            <button id="quantity_more">+</button>
+        </div>
+        <!-- a remplacer au css -->
+        <br> 
+        <!-- addEventListener -->
+        <button id="order">Ajouter au panier !</button>
+    </main>
+</body>
+</html>

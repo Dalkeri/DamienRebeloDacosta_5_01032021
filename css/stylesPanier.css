@@ -1,0 +1,112 @@
+body{
+    margin: 0;
+}
+.content{
+  margin: auto;
+  max-width: 1024px;
+  border:1px solid black;
+}
+
+.hidePage{
+    left: 0;
+    top: 0;
+    margin: 0;
+    right: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: black;
+    opacity: 0.75;
+    display: none;
+    position: fixed;
+}
+  
+  .quantityButton{
+    display: inline;
+}
+.quantity{
+    display: inline;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#empty{
+    display: none;
+}
+
+i{
+    cursor: pointer;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+  }
+.cartArray{
+    border-collapse: collapse;
+    width: 750px;
+    /* align-self: center; */
+  margin: auto;
+   
+    /* overflow-x: auto; */
+    /* -webkit-overflow-scrolling: touch; */
+}
+
+
+
+.validation{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 10px;
+    cursor: pointer;
+    display: none;
+    border:1px solid black;
+  }
+  
+  .cartContent{
+    margin-right: 3%;
+    margin-left: 3%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+ 
+  
+  .form{
+    background-color: cyan;
+    width: 50%;
+    top: 150px;
+    align-self: center;
+    position: fixed;
+    display: none;
+    transform-origin: center;
+    transform: scale(0);
+    animation: appear 0.5s linear 0s forwards;
+  }
+  
+  @keyframes appear{
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+  }
+
+  input:required:invalid, input:focus:invalid {
+    /* background-position: right top;
+    background-repeat: no-repeat;
+    -moz-box-shadow: none; */
+    border:7px solid red;
+  }
+  input:required:valid {
+    border:7px solid green;
+    /* background-position: right top;
+    background-repeat: no-repeat; */
+  }
