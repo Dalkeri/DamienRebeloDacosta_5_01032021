@@ -5,6 +5,11 @@ let cartArray = document.getElementsByClassName("cartArray");
 let buttonValidate = document.getElementsByClassName("validation");
 let totalPrice;
 
+let hidePage = document.getElementsByClassName("hidePage");
+let validation = document.getElementsByClassName("validation");
+let form = document.querySelector("form");
+
+// console.log(cartItem);
 drawCart();
 
 
@@ -148,23 +153,52 @@ function drawLine(item, i){
     })
 }
 
+function getDatas(){
+    let products = [];
+    for(let i = 0; i < cartItem.length; i++){
+        if(!products.includes(cartItem[i].id)){
+            products.push(cartItem[i].id);
+        }
+    }
+
+    let firstName = document.getElementById("form__firstName").value;
+    let lastName = document.getElementById("form__lastName").value;
+    let address = document.getElementById("form__address").value;
+    let city = document.getElementById("form__city").value;
+    let email = document.getElementById("form__email").value;
+    let contact = {
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        city: city,
+        email: email
+    }
+
+    
+    console.log(contact);
+    console.log(products);
+}
 
 // document.querySelector
 
-let form = document.getElementsByClassName("form");
-let hidePage = document.getElementsByClassName("hidePage");
-let validation = document.getElementsByClassName("validation");
 
 
 hidePage[0].addEventListener("click", () => {
   console.log("click hidePage");
-  form[0].style.display = "none";
+  form.style.display = "none";
   hidePage[0].style.display= "none";
 });
 
 validation[0].addEventListener("click", () => {
     hidePage[0].style.display = "block";
-    form[0].style.display = "block";
+    form.style.display = "block";
 });
 
+form.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+    console.log("coucou");
+    getDatas();
+    // window.location.href = "confirmation.html";
+    // return false; 
+});
 // form prevent default

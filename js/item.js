@@ -15,7 +15,7 @@ fetch("http://localhost:3000/api/teddies/"+idProduit)
 
 });
 
-
+//catch
 
 
 let buttonOrder = document.getElementById('order');

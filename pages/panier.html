@@ -22,53 +22,52 @@
         
 
         <section class="cartContent">
-            <table class="cartArray"></table>
-            
-            <form class="form">
-                <div class="form__name">
-                  <label for="name">Nom: </label>
-                  <input type="text" name="name" id="name" maxlength="75" required>
-                </div><br>
+          <table class="cartArray"></table> 
+          <form class="form">
+            <div class="form__firstName">
+              <label for="name">Nom: </label>
+              <input id="form__firstName" type="text" name="name" id="name" maxlength="75" pattern="[A-Za-zÀ-ÿ -]+" required>
+            </div><br>
 
-                <div class="form__surname">
-                  <label for="surname">Prénom: </label>
-                  <input type="text" name="name" id="name"  maxlength="75" required>
-                </div><br>
+            <div class="form__lastName">
+              <label for="surname">Prénom: </label>
+              <input id="form__lastName" type="text" name="name" id="name"  maxlength="75" pattern="[A-Za-zÀ-ÿ -]+" required>
+            </div><br>
 
-                <div class="form__email">
-                  <label for="email">Email: </label>
-                  <input type="email" name="email" id="email" pattern="[a-z0-9\._-.]+@[a-z0-9._-]{2,}\.[a-z]{2,4}" required>
-                  <!-- <input type="email" name="email" id="email" required> -->
-                  <!-- <input type="email" name="email" id="email" pattern="[A-Za-z.-_0-9]+[@][A-Za-z]+[.][a-z]+" required> -->
-                </div><br>
+            <div class="form__email">
+              <label for="email">Email: </label>
+              <input id="form__email" type="email" name="email" id="email" pattern="[a-z0-9\._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
+              <!-- <input type="email" name="email" id="email" required> -->
+              <!-- <input type="email" name="email" id="email" pattern="[A-Za-z.-_0-9]+[@][A-Za-z]+[.][a-z]+" required> -->
+            </div><br>
 
-                <div class="form__address">
-                  <label for="address">Adresse: </label>
-                  <input type="text" name="address" id="address" maxlength="75"  required>
-                </div><br>
+            <div class="form__address">
+              <label for="address">Adresse: </label>
+              <input id="form__address" type="text" name="address" id="address" maxlength="75"  required>
+            </div><br>
 
-                <div class="form__city">
-                  <label for="city">Ville: </label>
-                  <input type="text" name="city" id="city"  maxlength="75" required>
-                </div><br>
+            <div class="form__city">
+              <label for="city">Ville: </label>
+              <input id="form__city" type="text" name="city" id="city"  maxlength="75" pattern="[A-Za-zÀ-ÿ \-']+" required>
+            </div><br>
 
-                <!-- facultatif -->
-                <div class="form__code">
-                  <label for="code">Code postal: </label>
-                  <input type="text" name="code" id="code"  maxlength="5" minlength="5" pattern="[0-9]*" required>
-                </div><br>
+            <!-- facultatif -->
+            <div class="form__code">
+              <label for="code">Code postal: </label>
+              <input type="text" name="code" id="code"  maxlength="5" minlength="5" pattern="[0-9]*" required>
+            </div><br>
 
-                <div class="form__conditions">
-                  <input type="checkbox" id="form__conditions" name="form__conditions" value="form__conditions" required>
-                  <label for="form__conditions">J'accepte les conditions générales de vente</label><br>
-                </div><br>
+            <div class="form__conditions">
+              <input type="checkbox" id="form__conditions" name="form__conditions" value="form__conditions" required>
+              <label for="form__conditions">J'accepte les conditions générales de vente</label><br>
+            </div><br>
 
-                <div class="form__submit">
-                  <input type="submit" value="Commander !">
-                  <!-- preventdefault -->
-                </div><br>
+            <div class="form__submit">
+              <input class="submit" type="submit" value="Commander !">
+              <!-- preventdefault -->
+            </div><br>
 
-              </form>
+          </form>
         </section>
 
         <button class="validation">Commander</button>

@@ -106,7 +106,7 @@ table, th, td {
     border:7px solid red;
   }
   input:required:valid {
-    border:7px solid green;
+    border:7px solid lime;
     /* background-position: right top;
     background-repeat: no-repeat; */
   }
