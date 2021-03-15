@@ -5,10 +5,6 @@ let cartArray = document.getElementsByClassName("cartArray");
 let buttonValidate = document.getElementsByClassName("validation");
 let totalPrice;
 
-// console.log(cartItem);
-// console.log(cartArray);
-// console.log(document.getElementById("cartArray"));
-
 drawCart();
 
 
@@ -171,4 +167,4 @@ validation[0].addEventListener("click", () => {
     form[0].style.display = "block";
 });
 
-// form rpevent default
+// form prevent default

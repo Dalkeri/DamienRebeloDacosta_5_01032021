@@ -78,11 +78,4 @@ class Teddy{
 
         document.getElementsByTagName("BODY")[0].appendChild(displayZone); // on ajoute au body
     }
-
-    // equal(otherTeddy){
-    //     if(this.id == otherTeddy.id && this.selectedColors == otherTeddy.selectedColors) // l'id est censé être unique
-    //         return true;
-    //     return false;
-    // }
-
 }

@@ -1,5 +1,3 @@
-// let url = window.location.href;
-// let idProduit = url.split("=")[1]; // searchParams
 let params = new URL(document.location).searchParams;
 let idProduit = params.get('id');
 
@@ -24,10 +22,9 @@ let buttonOrder = document.getElementById('order');
 buttonOrder.addEventListener("click", () =>{
   let cartArray = (JSON.parse(localStorage.getItem("cartStored")) || [] );
   // let cartArray = localStorage.getItem("cartStored");
-  // console.log(cartArray);
 
   let newItem = new cartItem(teddy.id, teddy.selectedColor, teddy.img, teddy.name, teddy.price, quantity);
-  // pas obligé de refaire un newItem juste pour comparer, on peut direct comparer avec teddy.id et teddy.selectedColor
+
   let alreadyIn = cartArray.findIndex( (item => item.id === newItem.id) && (item => item.color === newItem.color));
       
   if(alreadyIn == -1){
@@ -37,7 +34,6 @@ buttonOrder.addEventListener("click", () =>{
     cartArray[alreadyIn].number += quantity;
   }
 
-  // localStorage.removeItem("cartStored");
   localStorage.setItem("cartStored", JSON.stringify(cartArray));
 })
 
