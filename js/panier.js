@@ -1,3 +1,4 @@
+let serverAddress = "http://localhost:3000/api/";
 
 let cartItem = (JSON.parse(localStorage.getItem("cartStored")) || [] );
 
@@ -174,9 +175,22 @@ function getDatas(){
         email: email
     }
 
-    
-    console.log(contact);
-    console.log(products);
+
+    sendOrder({contact, products});
+}
+
+function sendOrder(data){
+    fetch( serverAddress + "order", {
+        method: 'POST',
+        // mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(e => console.log(e));
 }
 
 // document.querySelector
