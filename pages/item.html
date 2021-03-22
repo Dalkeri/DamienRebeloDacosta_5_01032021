@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
+    <link rel="stylesheet" href="../css/navbarOverride.css">
     <script src="../js/teddy.js" defer></script>
     <script src="../js/cartItem.js" defer></script>
     <script src="../js/item.js" defer></script>
@@ -11,8 +13,18 @@
     <title>Produit - Orinono</title>
 </head>
 <body>
-    <h1>BIENVENUE</h1>
-    <a href="../index.html">Retour</a>
+    <nav class="nav-extended nav-center  light-blue lighten-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo"> <img src="../img/logo-orinoco.png" alt="Logo de Orinoco"></a>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="" href="../index.html">Accueil</a></li>
+            <li class="tab"><a class="" href="../pages/panier.html">Panier</a></li>
+          </ul>
+        </div>
+    </nav>
+
     <h2>Voici les infos de cet ours</h2>
     <main id="teddy">
         <img id="teddy__img" src="" alt="">

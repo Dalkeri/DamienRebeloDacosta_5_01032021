@@ -1,4 +1,4 @@
-let serverAddress = "http://localhost:3000/api/";
+const serverAddress = "http://localhost:3000/api/teddies/";
 
 let cartItem = (JSON.parse(localStorage.getItem("cartStored")) || [] );
 
@@ -55,6 +55,8 @@ function drawCart(){
     }
     else{
         let empty = document.getElementById("empty");
+        buttonValidate[0].style.display = "none";
+
         empty.style.display = "block";
     }
 }
@@ -96,7 +98,7 @@ function drawLine(item, i){
         numberMore.classList.add("quantityButton");
 
         priceU.textContent = item.price/100 + "€";
-        priceT.textContent = item.price/100 * item.number;
+        priceT.textContent = item.price/100 * item.number + "€";
 
         totalPrice += item.price/100 * item.number;
 
@@ -113,7 +115,7 @@ function drawLine(item, i){
     }
     else{
         priceU.textContent = "TOTAL : ";
-        priceT.textContent = totalPrice;
+        priceT.textContent = totalPrice + "€";
     }
 
     priceUCell.appendChild(priceU);
@@ -189,7 +191,7 @@ function sendOrder(data){
         body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(res => console.log(res))
+    .then(res => console.log(res)) //noms plus parlant
     .catch(e => console.log(e));
 }
 
@@ -203,7 +205,7 @@ hidePage[0].addEventListener("click", () => {
   hidePage[0].style.display= "none";
 });
 
-validation[0].addEventListener("click", () => {
+buttonValidate[0].addEventListener("click", () => {
     hidePage[0].style.display = "block";
     form.style.display = "block";
 });

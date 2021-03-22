@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css"> -->
+        <link rel="stylesheet" href="../css/navbarOverride.css">
         <link rel="stylesheet" href="../css/stylesPanier.css">
         <script src="https://kit.fontawesome.com/7e823e3ec9.js" crossorigin="anonymous"></script>
 
@@ -15,6 +17,19 @@
     </head>
     <body>
       <div class="hidePage"></div>
+
+      <nav class="nav-extended nav-center  light-blue lighten-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo"> <img src="../img/logo-orinoco.png" alt="Logo de Orinoco"></a>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class=" " href="../index.html">Accueil</a></li>
+            <li class="tab"><a class="active" href="#">Panier</a></li>
+          </ul>
+        </div>
+      </nav>
+
       <div class="content">
         <h1>Voici votre panier</h1>
         <a href="../index.html">Retour</a>
@@ -22,7 +37,7 @@
         
 
         <section class="cartContent">
-          <table class="cartArray"></table> 
+          <table class="cartArray striped"></table> 
           <form class="form">
             <div class="form__firstName">
               <label for="name">Nom: </label>
@@ -37,8 +52,6 @@
             <div class="form__email">
               <label for="email">Email: </label>
               <input id="form__email" type="email" name="email" id="email" pattern="[a-z0-9\._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
-              <!-- <input type="email" name="email" id="email" required> -->
-              <!-- <input type="email" name="email" id="email" pattern="[A-Za-z.-_0-9]+[@][A-Za-z]+[.][a-z]+" required> -->
             </div><br>
 
             <div class="form__address">

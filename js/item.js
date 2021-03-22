@@ -1,4 +1,4 @@
-let serverAddress = "http://localhost:3000/api/";
+const serverAddress = "http://localhost:3000/api/teddies/";
 let params = new URL(document.location).searchParams;
 let idProduit = params.get('id');
 
@@ -6,7 +6,7 @@ let teddy;
 let quantity = 1;
 
 
-fetch(serverAddress + "teddies/" + idProduit)
+fetch(serverAddress + idProduit)
 .then(res => res.json())
 .then(res => {
   teddy = new Teddy(res._id, res.name, res.price, res.description, res.colors, res.imageUrl);
@@ -22,8 +22,8 @@ fetch(serverAddress + "teddies/" + idProduit)
 let buttonOrder = document.getElementById('order');
 buttonOrder.addEventListener("click", () =>{
   let cartArray = (JSON.parse(localStorage.getItem("cartStored")) || [] );
-  // let cartArray = localStorage.getItem("cartStored");
 
+  //facultatif ?
   let newItem = new cartItem(teddy.id, teddy.selectedColor, teddy.img, teddy.name, teddy.price, quantity);
 
   let alreadyIn = cartArray.findIndex( (item => item.id === newItem.id) && (item => item.color === newItem.color));

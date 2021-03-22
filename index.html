@@ -6,15 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="./js/teddy.js"></script>
         <script src="./js/accueil.js"></script>
+        <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css">
+        <link rel="stylesheet" href="css/navbarOverride.css">
 
         <title>Accueil - Orinoco</title>
     </head>
     <body>
-        <h1>BIENVENUE</h1>
-        <a href="./pages/panier.html">Voir votre panier</a>
-        <h2>Voici la liste des ours en vente</h2>
-
-        <main id="list-teddies">
-        </main>
+    
+      <nav class="nav-extended nav-center  light-blue lighten-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo"> <img src="img/logo-orinoco.png" alt="Logo de Orinoco"></a>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active " href="#">Accueil</a></li>
+            <li class="tab"><a class="" href="pages/panier.html">Panier</a></li>
+          </ul>
+        </div>
+      </nav>
+        
+      <h1>BIENVENUE</h1>
+      <a href="./pages/panier.html">Voir votre panier</a>
+      <h2>Voici la liste des ours en vente</h2>
+        
+      <main id="list-teddies"></main>
     </body>
 </html>

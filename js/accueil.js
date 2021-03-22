@@ -1,6 +1,6 @@
-let serverAddress = "http://localhost:3000/api/";
+const serverAddress = "http://localhost:3000/api/teddies/";
  
-fetch(serverAddress + "teddies")
+fetch(serverAddress)
   .then(res => res.json())
   .then(res => {
     for(let i = 0; i < res.length; i++){
