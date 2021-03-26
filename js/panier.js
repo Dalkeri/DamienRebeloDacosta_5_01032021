@@ -2,7 +2,7 @@ const serverAddress = "http://localhost:3000/api/teddies/";
 
 let cartItem = (JSON.parse(localStorage.getItem("cartStored")) || [] );
 
-let cartArray = document.getElementsByClassName("cartArray");
+let cartArray = document.querySelector("table");
 let buttonValidate = document.getElementsByClassName("validation");
 let totalPrice;
 
@@ -15,13 +15,12 @@ drawCart();
 
 
 function drawCart(){
-    cartArray[0].innerHTML = '';
+    cartArray.innerHTML = '';
 
     if (cartItem.length > 0){
         totalPrice = 0;
 
-        let headerTable = document.createElement("tr");
-        let imgHead = document.createElement("th");
+        let headerTable = document.createElement("thead");
         let nameHead = document.createElement("th");
         let colorHead = document.createElement("th");
         let numberHead = document.createElement("th");
@@ -29,7 +28,6 @@ function drawCart(){
         let priceTHead = document.createElement("th");
         let deleteItem = document.createElement("th");
         
-        imgHead.textContent = "Photo";
         nameHead.textContent = "Nom";
         colorHead.textContent = "Couleur";
         numberHead.textContent = "Quantitée";
@@ -37,7 +35,6 @@ function drawCart(){
         priceTHead.textContent = "Prix total";
         deleteItem.textContent = "Suppression";
         
-        headerTable.appendChild(imgHead);
         headerTable.appendChild(nameHead);
         headerTable.appendChild(colorHead);
         headerTable.appendChild(numberHead);
@@ -45,12 +42,15 @@ function drawCart(){
         headerTable.appendChild(priceTHead);
         headerTable.appendChild(deleteItem);
 
-        cartArray[0].appendChild(headerTable);
+        cartArray.appendChild(headerTable);
 
+        let body = document.createElement("tbody");
         for(let i = 0; i <= cartItem.length; i++){
-            drawLine(cartItem[i], i);
+            body.appendChild(drawLine(cartItem[i], i));
+
         }
 
+        cartArray.appendChild(body);
         buttonValidate[0].style.display = "block";
     }
     else{
@@ -65,7 +65,6 @@ function drawLine(item, i){
     let index = i;
     let line = document.createElement("tr");
 
-    let imgCell = document.createElement("td");
     let nameCell = document.createElement("td");
     let colorCell = document.createElement("td");
     let numberCell = document.createElement("td");
@@ -73,7 +72,6 @@ function drawLine(item, i){
     let priceTCell = document.createElement("td");
     let supprCell = document.createElement("td");
 
-    let img = document.createElement("img");
     let name = document.createElement("p");
     let color = document.createElement("p");
     let numberLess = document.createElement("button");
@@ -84,9 +82,7 @@ function drawLine(item, i){
     let supprItem = document.createElement("i");
 
     if(item != undefined){
-        img.src = item.img;
-        img.style.width = "200px";
-
+       
         name.textContent = item.name;
         color.textContent = item.color;
 
@@ -105,7 +101,6 @@ function drawLine(item, i){
         supprItem.classList.add("fas");
         supprItem.classList.add("fa-trash-alt");
 
-        imgCell.appendChild(img);
         nameCell.appendChild(name);
         colorCell.appendChild(color);
         numberCell.appendChild(numberLess);
@@ -121,7 +116,6 @@ function drawLine(item, i){
     priceUCell.appendChild(priceU);
     priceTCell.appendChild(priceT);
 
-    line.appendChild(imgCell);
     line.appendChild(nameCell);
     line.appendChild(colorCell);
     line.appendChild(numberCell);
@@ -129,8 +123,8 @@ function drawLine(item, i){
     line.appendChild(priceTCell);
     line.appendChild(supprCell);
 
-    cartArray[0].appendChild(line); 
-        
+    // cartArray.appendChild(line); 
+    
     numberLess.addEventListener('click', () =>{
         if(item.number > 1){
             item.number --;
@@ -154,6 +148,8 @@ function drawLine(item, i){
         console.log("suppr item");
         console.log(cartItem);
     })
+
+    return line;
 }
 
 function getDatas(){

@@ -9,7 +9,21 @@ nav.nav-center ul li a {
     display: inline-block;
 }
 
-nav.nav-center img{
-    text-align: center;
-    transform: scale(0.75);
-}
+nav .brand-logo {
+  transform: scale(1);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  nav .brand-logo.left, nav .brand-logo.right {
+    padding: 0;
+    -webkit-transform: none;
+            transform: none;
+  }
+  nav .brand-logo.left {
+    left: 0.5rem;
+  }
+  nav .brand-logo.right {
+    right: 0.5rem;
+    left: auto;
+  }

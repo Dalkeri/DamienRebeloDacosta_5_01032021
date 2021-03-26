@@ -1,0 +1,15 @@
+select{
+    display: block;
+}
+
+/* main div{
+    margin-top: 10px !important;
+} */
+
+main {
+    padding-bottom: 20px;
+}
+
+.quantityZone{
+    margin-bottom: 20px;
+  }

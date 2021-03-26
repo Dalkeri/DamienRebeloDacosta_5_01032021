@@ -7,15 +7,17 @@
         <script src="./js/teddy.js"></script>
         <script src="./js/accueil.js"></script>
         <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css">
-        <link rel="stylesheet" href="css/navbarOverride.css">
+        <link rel="stylesheet" href="/css/navbarOverride.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/footer.css">
 
         <title>Accueil - Orinoco</title>
     </head>
     <body>
     
-      <nav class="nav-extended nav-center  light-blue lighten-2">
+      <nav class="nav-extended nav-center light-blue lighten-1">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo"> <img src="img/logo-orinoco.png" alt="Logo de Orinoco"></a>
+          <a href="#" class="brand-logo"> <img src="img/logo-orinoco2.png" alt="Logo d'Orinoco"></a>
         </div>
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
@@ -25,10 +27,27 @@
         </div>
       </nav>
         
-      <h1>BIENVENUE</h1>
-      <a href="./pages/panier.html">Voir votre panier</a>
-      <h2>Voici la liste des ours en vente</h2>
-        
-      <main id="list-teddies"></main>
+      <main class="container">
+        <p class="flow-text center-align">Bienvenue sur notre boutique de vente d'ours.</p>
+        <h2 class="flow-text center-align">Voici la liste des ours en vente en ce moment:</h2>
+        <div class="row" id="list-teddies">
+        </div>
+      </main>
+
+      <footer class="page-footer light-blue lighten-1">
+        <div class="container">
+          <div class="row">
+            <div class="col l12 m12 s12">
+              <h5 class="white-text  center-align">L'univers d'Orinoco</h5>
+              <p class="grey-text text-lighten-4  center-align">Orinoco se démarque des autres sites e-commerce en créant des sites thématiques ne vendant qu'un seul groupe de produit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container col s12 m12 l12 center-align">
+            © 2021 Copyright Text
+          </div>
+        </div>
+      </footer>
     </body>
 </html>

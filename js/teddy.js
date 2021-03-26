@@ -12,38 +12,51 @@ class Teddy{
  
     //affichage spécifique à l'accueil
     accueil_display(){
-        let displayZone = document.getElementById("list-teddies")
-        let teddyZone= document.createElement("section");
+        let displayZone = document.getElementById("list-teddies");
 
+        let dimensions = document.createElement("div");
+        let card = document.createElement("div");
+        let imgContainer = document.createElement("div");
         let img = document.createElement("img");
-        let name = document.createElement("h3");
-        let price = document.createElement("p");
-        let desc = document.createElement("p");
-        let link = document.createElement("a");
+        // let cardTitle = document.createElement("span");
+        let cardContentContainer = document.createElement("div");
+        let cardContentName = document.createElement("h5");
+        let cardContentDesc = document.createElement("p");
+        let cardContentPrice = document.createElement("p");
+        let cardAction = document.createElement("div");
+        let cardLink = document.createElement("a");
 
-        teddyZone.classList.add("teddy");
-        img.classList.add("teddy__img");
-        name.classList.add("teddy__name")
-        price.classList.add("teddy__price");
-        desc.classList.add("teddy__desc");
-        link.classList.add("teddy__link");
+        dimensions.classList.add("col", "s12", "m6", "l4");
+        card.classList.add("card", "hoverable");
+        imgContainer.classList.add("card-image");
+        cardContentContainer.classList.add("card-content", "center-align");
+        cardContentPrice.classList.add("cardContentPrice");
+        cardAction.classList.add("card-action", "center-align");
 
         img.src = this.img;
-        img.style.width = "200px";
+        // cardTitle.textContent = this.name;
+        cardContentName.textContent = this.name;
+        cardContentDesc.textContent = this.description;
+        cardContentPrice.textContent = this.handleCents(this.price) + "€";
+        cardLink.href="./pages/item.html?id=" + this.id;
+        cardLink.textContent = "En savoir plus";
 
-        name.textContent = this.name;
-        price.textContent = this.price/100;
-        desc.textContent = this.description;
-        link.href="./pages/item.html?id=" + this.id;
-        link.textContent = "En savoir plus";
+        imgContainer.appendChild(img);
+        // imgContainer.appendChild(cardTitle);
 
-        teddyZone.appendChild(img);
-        teddyZone.appendChild(name);
-        teddyZone.appendChild(price);
-        teddyZone.appendChild(desc);
-        teddyZone.appendChild(link);
+        cardContentContainer.appendChild(cardContentName);
+        cardContentContainer.appendChild(cardContentDesc);
+        cardContentContainer.appendChild(cardContentPrice);
 
-        displayZone.appendChild(teddyZone);
+        cardAction.appendChild(cardLink);
+
+        card.appendChild(imgContainer);
+        card.appendChild(cardContentContainer);
+        card.appendChild(cardAction);
+        
+        dimensions.appendChild(card);
+
+        displayZone.appendChild(dimensions);
     }
 
     //affichage spécifique à la page produit
@@ -59,7 +72,7 @@ class Teddy{
         let orderButton = document.getElementById("order");
 
         img.src = this.img;
-        img.style.width= "200px";
+        img.style.height= "200px";
 
         name.textContent = this.name;
         price.textContent = this.price/100;
@@ -76,6 +89,11 @@ class Teddy{
             colorSelect.appendChild(colorOption);
         }
 
-        document.getElementsByTagName("BODY")[0].appendChild(displayZone); // on ajoute au body
+        // document.getElementsByTagName("BODY")[0].appendChild(displayZone); // on ajoute au body
+    }
+
+    handleCents(price){
+        let priceString = price.toString();
+        return priceString.slice(0, priceString.length-2)+"."+priceString.slice(priceString.length-2);
     }
 }

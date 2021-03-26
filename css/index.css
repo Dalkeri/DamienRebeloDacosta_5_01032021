@@ -1,0 +1,12 @@
+main img{
+    height: 220px;
+    object-fit: cover;
+}
+
+.cardContentPrice{
+    font-weight: bold;
+}
+
+main h5{
+    font-weight: 500;
+}

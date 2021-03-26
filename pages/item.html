@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
-    <link rel="stylesheet" href="../css/navbarOverride.css">
-    <script src="../js/teddy.js" defer></script>
-    <script src="../js/cartItem.js" defer></script>
-    <script src="../js/item.js" defer></script>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
+      <link rel="stylesheet" href="../css/navbarOverride.css">
+      <link rel="stylesheet" href="../css/footer.css">
+      <link rel="stylesheet" href="../css/item.css">
+      <script src="../js/teddy.js" defer></script>
+      <script src="../js/cartItem.js" defer></script>
+      <script src="../js/item.js" defer></script>
 
-    <title>Produit - Orinono</title>
-</head>
-<body>
-    <nav class="nav-extended nav-center  light-blue lighten-2">
+      <title>Produit - Orinono</title>
+  </head>
+  <body>
+    <header>
+      <nav class="nav-extended nav-center  light-blue lighten-2">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo"> <img src="../img/logo-orinoco.png" alt="Logo de Orinoco"></a>
+          <a href="#" class="brand-logo"> <img src="../img/logo-orinoco2.png" alt="Logo de Orinoco"></a>
         </div>
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
@@ -24,26 +27,54 @@
           </ul>
         </div>
     </nav>
+    </header>
+    
 
-    <h2>Voici les infos de cet ours</h2>
-    <main id="teddy">
-        <img id="teddy__img" src="" alt="">
-        <h3 id="teddy__title"></h3>
-        <p id="teddy__price"></p>
-        <p id="teddy__description"></p>
+    <main id="teddy" class="container">
+      <h2 class="flow-text center-align">Voici les infos de cet ours</h2>
 
-        <label id="colorsLabel" for="color-select">Choisissez une couleur :</label>
-        <select id="colorSelect" name="colors" ></select>
-        <div>
-            <label id="quantity">quantitée :</label>
-            <button id="quantity_less">-</button>
-            <label id="quantity_label">1</label>
-            <button id="quantity_more">+</button>
+      <div class="row">
+        <div class="col s12 m6 l6 center">
+          <img id="teddy__img" src="" alt="" class="">
         </div>
-        <!-- a remplacer au css -->
-        <br> 
-        <!-- addEventListener -->
-        <button id="order">Ajouter au panier !</button>
+        <div class="col s12 m6 l6">
+          <h3 id="teddy__title"></h3>
+          <p id="teddy__price"></p>
+          <p id="teddy__description"></p>
+          
+          <div class="input-filed">
+            <label id="colorsLabel" for="color-select"  class="browser-default">Choisissez une couleur :</label>
+            <div class="row">
+              <select class="col s6 m4 l3" id="colorSelect" name="colors" ></select>
+            </div>
+          </div>
+
+          <div class="quantityZone">
+              <label id="quantity">quantitée :</label>
+              <button id="quantity_less">-</button>
+              <label id="quantity_label">1</label>
+              <button id="quantity_more">+</button>
+          </div>
+          <!-- <br>  -->
+          <button id="order">Ajouter au panier !</button>
+        </div>
+      </div>
     </main>
-</body>
+
+    <footer class="page-footer light-blue lighten-1">
+      <div class="container">
+        <div class="row">
+          <div class="col l12 m12 s12">
+            <h5 class="white-text  center-align">L'univers d'Orinoco</h5>
+            <p class="grey-text text-lighten-4  center-align">Orinoco se démarque des autres sites e-commerce en créant des sites thématiques ne vendant qu'un seul groupe de produit.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container col s12 m12 l12 center-align">
+          © 2021 Copyright Text
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
