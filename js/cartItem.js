@@ -2,7 +2,7 @@ class cartItem{
     constructor(id, color, img, name, price, number){
         this.id = id;
         this.color = color;
-        this.img = img;
+        this.img = img;/*virer*/
         this.name = name;
         this.price = price;
         this.number = number;

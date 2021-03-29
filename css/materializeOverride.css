@@ -1,0 +1,133 @@
+/* NAVBAR */
+nav.nav-center ul {
+    text-align: center;
+}
+nav.nav-center ul li {
+    display: inline;
+    float: none;
+}
+nav.nav-center ul li a {
+    display: inline-block;
+}
+nav .brand-logo {
+  transform: scale(1);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+nav .brand-logo.left, nav .brand-logo.right {
+    padding: 0;
+    -webkit-transform: none;
+            transform: none;
+}
+nav .brand-logo.left {
+    left: 0.5rem;
+}
+nav .brand-logo.right {
+    right: 0.5rem;
+    left: auto;
+}
+
+
+/* Index */
+main .imageIndex{
+    height: 220px;
+    object-fit: cover;
+}
+.cardContentPrice{
+    font-weight: bold;
+}
+main h5{
+    font-weight: 500;
+}
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+}
+@media only screen and (min-width: 993px){
+    .container {
+        width: 90%;
+    }
+}
+
+
+/* FOOTER */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+/* ITEM */
+select{
+    display: block;
+}
+main #teddy {
+    padding-bottom: 20px;
+}
+#teddy__img{
+    width: 100%;
+}
+.quantityZone{
+    margin-bottom: 20px;
+}
+
+
+/* PANIER */
+.quantityButton{
+    display: inline;
+}
+.quantity{
+    display: inline;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+#empty{
+    display: none;
+}
+i{
+    cursor: pointer;
+}
+.validation{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 10px;
+    cursor: pointer;
+    display: none;
+    border:1px solid black;
+}    
+.form{
+    background-color: cyan;
+    width: 50%;
+    top: 150px;
+    align-self: center;
+    position: fixed;
+    display: none;
+    transform-origin: center;
+    transform: scale(0);
+    animation: appear 0.5s linear 0s forwards;
+}  
+input:required:invalid, input:focus:invalid {
+    /* background-position: right top;
+    background-repeat: no-repeat;
+    -moz-box-shadow: none; */
+    border:7px solid red;
+}
+input:required:valid {
+    border:7px solid lime;
+    /* background-position: right top;
+    background-repeat: no-repeat; */
+}

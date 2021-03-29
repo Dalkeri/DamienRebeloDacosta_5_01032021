@@ -10,3 +10,16 @@ main img{
 main h5{
     font-weight: 500;
 }
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+}
+
+@media only screen and (min-width: 993px){
+    .container {
+        width: 90%;
+    }
+}
+

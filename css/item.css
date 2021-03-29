@@ -2,14 +2,13 @@ select{
     display: block;
 }
 
-/* main div{
-    margin-top: 10px !important;
-} */
-
-main {
+main #teddy {
     padding-bottom: 20px;
 }
 
+#teddy__img{
+    width: 100%;
+}
 .quantityZone{
     margin-bottom: 20px;
-  }
+}

@@ -11,7 +11,7 @@ class Teddy{
     }
  
     //affichage spécifique à l'accueil
-    accueil_display(){
+    index_display(){
         let displayZone = document.getElementById("list-teddies");
 
         let dimensions = document.createElement("div");
@@ -29,6 +29,7 @@ class Teddy{
         dimensions.classList.add("col", "s12", "m6", "l4");
         card.classList.add("card", "hoverable");
         imgContainer.classList.add("card-image");
+        img.classList.add("imageIndex");
         cardContentContainer.classList.add("card-content", "center-align");
         cardContentPrice.classList.add("cardContentPrice");
         cardAction.classList.add("card-action", "center-align");
@@ -72,7 +73,7 @@ class Teddy{
         let orderButton = document.getElementById("order");
 
         img.src = this.img;
-        img.style.height= "200px";
+        // img.style.height= "200px";
 
         name.textContent = this.name;
         price.textContent = this.price/100;
@@ -94,6 +95,6 @@ class Teddy{
 
     handleCents(price){
         let priceString = price.toString();
-        return priceString.slice(0, priceString.length-2)+"."+priceString.slice(priceString.length-2);
+        return priceString.slice(0, priceString.length-2)+","+priceString.slice(priceString.length-2);
     }
 }

@@ -6,7 +6,7 @@ let cartArray = document.querySelector("table");
 let buttonValidate = document.getElementsByClassName("validation");
 let totalPrice;
 
-let hidePage = document.getElementsByClassName("hidePage");
+// let hidePage = document.getElementsByClassName("hidePage");
 let validation = document.getElementsByClassName("validation");
 let form = document.querySelector("form");
 
@@ -195,14 +195,14 @@ function sendOrder(data){
 
 
 
-hidePage[0].addEventListener("click", () => {
-  console.log("click hidePage");
-  form.style.display = "none";
-  hidePage[0].style.display= "none";
-});
+// hidePage[0].addEventListener("click", () => {
+//   console.log("click hidePage");
+//   form.style.display = "none";
+//   hidePage[0].style.display= "none";
+// });
 
 buttonValidate[0].addEventListener("click", () => {
-    hidePage[0].style.display = "block";
+    // hidePage[0].style.display = "block";
     form.style.display = "block";
 });
 
