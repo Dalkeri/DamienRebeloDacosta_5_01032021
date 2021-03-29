@@ -7,13 +7,13 @@
         <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
         <link rel="stylesheet" href="../css/materializeOverride.css">
         <script src="https://kit.fontawesome.com/7e823e3ec9.js" crossorigin="anonymous"></script>
+        <script src="../js/divers.js" defer></script>
         <script src="../js/panier.js" defer></script>
         <link rel="icon" href="../img/favicon-orinoco.png" />
 
         <title>Panier - Orinoco</title>
     </head>
     <body>
-      <!-- <div class="hidePage"></div> -->
       <nav class="nav-extended nav-center light-blue lighten-2">
         <div class="nav-wrapper">
           <a href="../index.html" class="brand-logo"> <img src="../img/logo-orinoco2.png" alt="Logo de Orinoco"></a>
@@ -21,66 +21,70 @@
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
             <li class="tab"><a class=" " href="../index.html">Accueil</a></li>
-            <li class="tab"><a class="active" href="#">Panier</a></li>
+            <li class="tab"><a class="active" href="panier.html">Panier<span id="navbarBadge" class="new badge" data-badge-caption=""></span></a></li>
           </ul>
         </div>
       </nav>
-      <h1>Voici votre panier</h1>
 
-      <main class="content">
+      <main class="container panierContainer">
+        <h1 class="flow-text center-align"><strong>Voici votre panier</strong></h1>
 
-        <section class="cartContent">
+        <!-- <div class="row"> -->
+          <!-- <div class="tableContainer"> -->
+            <table class="striped centered responsive-table"></table>
+          <!-- </div> -->
+        <!-- </div> -->
+        <div class="row" id="validationContainer">
+          <div class="center-align">
+            <p class="totalPriceContainer">Total: <strong id="totalPrice"></strong></p>
+            <a class="waves-effect waves-light btn">Valider le panier</a>
+          </div>
+                    
+        </div>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="last_name" type="text" class="validate">
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                  <label for="disabled">Disabled</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  This is an inline input field:
+                  <div class="input-field inline">
+                    <input id="email_inline" type="email" class="validate">
+                    <label for="email_inline">Email</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        <!-- </section> -->
 
-          <table class="striped centered responsive-table"></table>
-
-          <!-- <table class="striped centered responsive-table"></table>  -->
-
-          <form class="form">
-            <div class="form__firstName">
-              <label for="name">Nom: </label>
-              <input id="form__firstName" type="text" name="name" id="name" maxlength="75" pattern="[A-Za-zÀ-ÿ -]+" required>
-            </div><br>
-
-            <div class="form__lastName">
-              <label for="surname">Prénom: </label>
-              <input id="form__lastName" type="text" name="name" id="name"  maxlength="75" pattern="[A-Za-zÀ-ÿ -]+" required>
-            </div><br>
-
-            <div class="form__email">
-              <label for="email">Email: </label>
-              <input id="form__email" type="email" name="email" id="email" pattern="[a-z0-9\._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required>
-            </div><br>
-
-            <div class="form__address">
-              <label for="address">Adresse: </label>
-              <input id="form__address" type="text" name="address" id="address" maxlength="75"  required>
-            </div><br>
-
-            <div class="form__city">
-              <label for="city">Ville: </label>
-              <input id="form__city" type="text" name="city" id="city"  maxlength="75" pattern="[A-Za-zÀ-ÿ \-']+" required>
-            </div><br>
-
-            <!-- facultatif -->
-            <div class="form__code">
-              <label for="code">Code postal: </label>
-              <input type="text" name="code" id="code"  maxlength="5" minlength="5" pattern="[0-9]*" required>
-            </div><br>
-
-            <div class="form__conditions">
-              <input type="checkbox" id="form__conditions" name="form__conditions" value="form__conditions" required>
-              <label for="form__conditions">J'accepte les conditions générales de vente</label><br>
-            </div><br>
-
-            <div class="form__submit">
-              <input class="submit" type="submit" value="Commander !">
-              <!-- preventdefault -->
-            </div><br>
-
-          </form>
-        </section>
-
-        <button class="validation">Commander</button>
 
 
         <p id="empty">Votre panier est vide :(</p>

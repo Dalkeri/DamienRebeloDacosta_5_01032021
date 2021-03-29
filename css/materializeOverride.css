@@ -1,4 +1,7 @@
 /* NAVBAR */
+span.badge{
+    min-width: 1rem;
+}
 nav.nav-center ul {
     text-align: center;
 }
@@ -95,27 +98,29 @@ main #teddy {
 i{
     cursor: pointer;
 }
-.validation{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 10px;
-    cursor: pointer;
-    display: none;
-    border:1px solid black;
-}    
+@media only screen and (max-width: 950px) {
+    .panierContainer{
+        width: 95% !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .panierContainer{
+        width: 99% !important;
+    }
+}
+@media only screen and (max-width: 434px) {
+    table{
+        width: 80% !important;
+        margin: auto;
+    }
+}
 .form{
     background-color: cyan;
     width: 50%;
     top: 150px;
     align-self: center;
     position: fixed;
-    display: none;
+    /* display: none; */
     transform-origin: center;
     transform: scale(0);
     animation: appear 0.5s linear 0s forwards;

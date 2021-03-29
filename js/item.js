@@ -1,4 +1,3 @@
-const serverAddress = "http://localhost:3000/api/teddies/";
 let params = new URL(document.location).searchParams;
 let idProduit = params.get('id');
 
@@ -10,11 +9,10 @@ fetch(serverAddress + idProduit)
 .then(res => res.json())
 .then(res => {
   teddy = new Teddy(res._id, res.name, res.price, res.description, res.colors, res.imageUrl);
-
   // console.log(teddy);
   teddy.item_display();
-
-});
+})
+.catch(e => console.log(e));
 
 //catch
 

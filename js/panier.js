@@ -1,23 +1,21 @@
-const serverAddress = "http://localhost:3000/api/teddies/";
-
-let cartItem = (JSON.parse(localStorage.getItem("cartStored")) || [] );
-
 let cartArray = document.querySelector("table");
-let buttonValidate = document.getElementsByClassName("validation");
-let totalPrice;
+// let buttonValidate = document.getElementsByClassName("validation");
 
-// let hidePage = document.getElementsByClassName("hidePage");
+let totalPrice;
+let totalPriceDisplay = document.getElementById("totalPrice");
+// console.log(totalPriceDisplay);
+
 let validation = document.getElementsByClassName("validation");
 let form = document.querySelector("form");
 
-// console.log(cartItem);
+// console.log(cart);
 drawCart();
 
 
 function drawCart(){
     cartArray.innerHTML = '';
-
-    if (cartItem.length > 0){
+    
+    if (cart.length > 0){
         totalPrice = 0;
 
         let headerTable = document.createElement("thead");
@@ -27,7 +25,15 @@ function drawCart(){
         let priceUHead = document.createElement("th");
         let priceTHead = document.createElement("th");
         let deleteItem = document.createElement("th");
-        
+
+        // headerTable.classList.add("center-align");
+        nameHead.classList.add("center-align");
+        colorHead.classList.add("center-align");
+        numberHead.classList.add("center-align");
+        priceUHead.classList.add("center-align");
+        priceTHead.classList.add("center-align");
+        deleteItem.classList.add("center-align");
+
         nameHead.textContent = "Nom";
         colorHead.textContent = "Couleur";
         numberHead.textContent = "Quantitée";
@@ -45,17 +51,19 @@ function drawCart(){
         cartArray.appendChild(headerTable);
 
         let body = document.createElement("tbody");
-        for(let i = 0; i <= cartItem.length; i++){
-            body.appendChild(drawLine(cartItem[i], i));
-
+        for(let i = 0; i < cart.length; i++){
+            body.appendChild(drawLine(cart[i], i));
+            totalPrice += cart[i].price * cart[i].number;
         }
 
         cartArray.appendChild(body);
-        buttonValidate[0].style.display = "block";
+        // buttonValidate[0].style.display = "block";
+        totalPriceDisplay.textContent = handleCents(totalPrice) +"€";
     }
     else{
         let empty = document.getElementById("empty");
-        buttonValidate[0].style.display = "none";
+        let validationContainer = document.getElementById("validationContainer")
+        validationContainer.style.display = "none";
 
         empty.style.display = "block";
     }
@@ -72,19 +80,15 @@ function drawLine(item, i){
     let priceTCell = document.createElement("td");
     let supprCell = document.createElement("td");
 
-    let name = document.createElement("p");
-    let color = document.createElement("p");
     let numberLess = document.createElement("button");
     let number = document.createElement("p");
     let numberMore = document.createElement("button");
-    let priceU = document.createElement("p");
-    let priceT = document.createElement("p");
     let supprItem = document.createElement("i");
 
     if(item != undefined){
-       
-        name.textContent = item.name;
-        color.textContent = item.color;
+        
+        nameCell.textContent = item.name;
+        colorCell.textContent = item.color;
 
         numberLess.textContent = "-";
         number.textContent = item.number;
@@ -93,16 +97,12 @@ function drawLine(item, i){
         number.classList.add("quantity");
         numberMore.classList.add("quantityButton");
 
-        priceU.textContent = item.price/100 + "€";
-        priceT.textContent = item.price/100 * item.number + "€";
-
-        totalPrice += item.price/100 * item.number;
+        priceUCell.textContent = handleCents(item.price) + "€";
+        priceTCell.textContent = handleCents(item.price * item.number) + "€";
 
         supprItem.classList.add("fas");
         supprItem.classList.add("fa-trash-alt");
 
-        nameCell.appendChild(name);
-        colorCell.appendChild(color);
         numberCell.appendChild(numberLess);
         numberCell.appendChild(number);
         numberCell.appendChild(numberMore);
@@ -112,9 +112,6 @@ function drawLine(item, i){
         priceU.textContent = "TOTAL : ";
         priceT.textContent = totalPrice + "€";
     }
-
-    priceUCell.appendChild(priceU);
-    priceTCell.appendChild(priceT);
 
     line.appendChild(nameCell);
     line.appendChild(colorCell);
@@ -128,7 +125,7 @@ function drawLine(item, i){
     numberLess.addEventListener('click', () =>{
         if(item.number > 1){
             item.number --;
-            localStorage.setItem("cartStored", JSON.stringify(cartItem));
+            localStorage.setItem("cartStored", JSON.stringify(cart));
             drawCart();
             // console.log(item);
         }
@@ -136,17 +133,17 @@ function drawLine(item, i){
         
     numberMore.addEventListener('click', () =>{
         item.number ++;
-        localStorage.setItem("cartStored", JSON.stringify(cartItem));
+        localStorage.setItem("cartStored", JSON.stringify(cart));
         drawCart();
         // console.log(item);
     }); 
 
     supprItem.addEventListener('click', () =>{
-        cartItem.splice(index, 1);
-        localStorage.setItem("cartStored", JSON.stringify(cartItem));
+        cart.splice(index, 1);
+        localStorage.setItem("cartStored", JSON.stringify(cart));
         drawCart();
         console.log("suppr item");
-        console.log(cartItem);
+        console.log(cart);
     })
 
     return line;
@@ -154,9 +151,9 @@ function drawLine(item, i){
 
 function getDatas(){
     let products = [];
-    for(let i = 0; i < cartItem.length; i++){
-        if(!products.includes(cartItem[i].id)){
-            products.push(cartItem[i].id);
+    for(let i = 0; i < cart.length; i++){
+        if(!products.includes(cart[i].id)){
+            products.push(cart[i].id);
         }
     }
 
@@ -201,10 +198,10 @@ function sendOrder(data){
 //   hidePage[0].style.display= "none";
 // });
 
-buttonValidate[0].addEventListener("click", () => {
-    // hidePage[0].style.display = "block";
-    form.style.display = "block";
-});
+// buttonValidate[0].addEventListener("click", () => {
+//     // hidePage[0].style.display = "block";
+//     form.style.display = "block";
+// });
 
 form.addEventListener("submit", function (evt) {
     evt.preventDefault();

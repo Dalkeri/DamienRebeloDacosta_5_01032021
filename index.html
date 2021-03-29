@@ -4,11 +4,12 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="./js/teddy.js"></script>
-        <script src="./js/accueil.js"></script>
+        <script src="./js/divers.js" defer></script>
+        <script src="./js/teddy.js" defer></script>
+        <script src="./js/accueil.js" defer></script>
         <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.css">
         <link rel="stylesheet" href="/css/materializeOverride.css">
-      <link rel="icon" href="/img/favicon-orinoco.png" />
+        <link rel="icon" href="/img/favicon-orinoco.png" />
 
         <title>Accueil - Orinoco</title>
     </head>
@@ -21,14 +22,14 @@
         <div class="nav-content">
           <ul class="tabs tabs-transparent">
             <li class="tab"><a class="active " href="#">Accueil</a></li>
-            <li class="tab"><a class="" href="pages/panier.html">Panier</a></li>
+            <li class="tab"><a class="" href="pages/panier.html">Panier<span id="navbarBadge" class="new badge" data-badge-caption=""></span></a></li>
           </ul>
         </div>
       </nav>
         
       <main class="container">
-        <p class="flow-text center-align">Bienvenue sur notre boutique de vente d'ours.</p>
-        <h2 class="flow-text center-align">Voici la liste des ours en vente en ce moment:</h2>
+        <h1 class="flow-text center-align"><strong>Bienvenue sur notre boutique de vente d'ours.</strong></h1>
+        <p class="flow-text center-align">Voici la liste des ours en vente en ce moment:</p>
         <div class="row" id="list-teddies">
         </div>
       </main>

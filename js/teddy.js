@@ -38,7 +38,7 @@ class Teddy{
         // cardTitle.textContent = this.name;
         cardContentName.textContent = this.name;
         cardContentDesc.textContent = this.description;
-        cardContentPrice.textContent = this.handleCents(this.price) + "€";
+        cardContentPrice.textContent = handleCents(this.price) + "€";
         cardLink.href="./pages/item.html?id=" + this.id;
         cardLink.textContent = "En savoir plus";
 
@@ -73,10 +73,9 @@ class Teddy{
         let orderButton = document.getElementById("order");
 
         img.src = this.img;
-        // img.style.height= "200px";
 
         name.textContent = this.name;
-        price.textContent = this.price/100;
+        price.textContent = handleCents(this.price) + "€";
         description.textContent = this.description;
 
         //on ajoute un Event Listener sur le select pour changer la selectedColor quand on change
@@ -93,8 +92,5 @@ class Teddy{
         // document.getElementsByTagName("BODY")[0].appendChild(displayZone); // on ajoute au body
     }
 
-    handleCents(price){
-        let priceString = price.toString();
-        return priceString.slice(0, priceString.length-2)+","+priceString.slice(priceString.length-2);
-    }
+    
 }
