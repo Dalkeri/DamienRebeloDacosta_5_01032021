@@ -203,11 +203,12 @@ function sendOrder(data){
 //     form.style.display = "block";
 // });
 
-form.addEventListener("submit", function (evt) {
-    evt.preventDefault();
-    console.log("coucou");
-    getDatas();
-    // window.location.href = "confirmation.html";
-    // return false; 
-});
+// form.addEventListener("submit", function (evt) {
+//     evt.preventDefault();
+//     console.log("coucou");
+//     getDatas();
+//     // window.location.href = "confirmation.html";
+//     // return false; 
+// });
+
 // form prevent default

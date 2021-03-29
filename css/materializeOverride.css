@@ -114,25 +114,17 @@ i{
         margin: auto;
     }
 }
-.form{
-    background-color: cyan;
-    width: 50%;
-    top: 150px;
-    align-self: center;
-    position: fixed;
-    /* display: none; */
-    transform-origin: center;
-    transform: scale(0);
-    animation: appear 0.5s linear 0s forwards;
-}  
+
+
+
 input:required:invalid, input:focus:invalid {
     /* background-position: right top;
     background-repeat: no-repeat;
     -moz-box-shadow: none; */
-    border:7px solid red;
+    border-bottom:4px solid red;
 }
 input:required:valid {
-    border:7px solid lime;
+    border-bottom:4px solid #26a69a;
     /* background-position: right top;
     background-repeat: no-repeat; */
 }

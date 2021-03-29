@@ -41,48 +41,44 @@
           </div>
                     
         </div>
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                  <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Last Name</label>
-                </div>
+
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Prénom" id="first_name" type="text"  maxlength="75" required>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                  <label for="disabled">Disabled</label>
-                </div>
+              <div class="input-field col s6">
+                <input placeholder="Nom" id="last_name" type="text" maxlength="75" required>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Email" id="email" type="email" class="validate" required>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Adresse postale" id="adress" type="text" class="validate" required>
               </div>
-              <div class="row">
-                <div class="col s12">
-                  This is an inline input field:
-                  <div class="input-field inline">
-                    <input id="email_inline" type="email" class="validate">
-                    <label for="email_inline">Email</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                  </div>
-                </div>
+              <div class="input-field col s4">
+                <input placeholder="Ville" id="city" type="text" class="validate" required>
               </div>
-            </form>
-          </div>
+              <div class="input-field col s2">
+                <input placeholder="Code postal" id="zipCode" type="text" maxlength="5" minlength="5" pattern="[0-9]*" required>
+
+              </div>
+            </div>
+            <label>
+              <input type="checkbox" required/>
+              <span>J'accepte les conditions générales de vente</span>
+            </label><br><br>
+            <div class="form__submit">
+              <input class="submit" type="submit" value="zdfzefz">
+            </div>
+          </form>
+        </div>
         <!-- </section> -->
 
 
