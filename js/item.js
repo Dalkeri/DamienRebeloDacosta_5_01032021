@@ -34,6 +34,8 @@ buttonOrder.addEventListener("click", () =>{
   }
 
   localStorage.setItem("OrinocoCartStored", JSON.stringify(cartArray));
+  updateNavBar();
+  console.log("coucou");
 })
 
 let buttonLess = document.getElementById('quantity_less');

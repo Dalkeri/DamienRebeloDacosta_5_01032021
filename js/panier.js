@@ -129,7 +129,7 @@ function drawLine(item, i){
             item.number --;
             localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
             drawCart();
-            // console.log(item);
+            updateNavBar();
         }
     }); 
         
@@ -137,15 +137,14 @@ function drawLine(item, i){
         item.number ++;
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
         drawCart();
-        // console.log(item);
+        updateNavBar();
     }); 
 
     supprItem.addEventListener('click', () =>{
         cart.splice(index, 1);
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
         drawCart();
-        console.log("suppr item");
-        console.log(cart);
+        updateNavBar();
     })
 
     return line;
