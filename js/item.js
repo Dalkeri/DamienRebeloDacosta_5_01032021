@@ -19,7 +19,7 @@ fetch(serverAddress + idProduit)
 
 let buttonOrder = document.getElementById('order');
 buttonOrder.addEventListener("click", () =>{
-  let cartArray = (JSON.parse(localStorage.getItem("cartStored")) || [] );
+  let cartArray = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
 
   //facultatif ?
   let newItem = new cartItem(teddy.id, teddy.selectedColor, teddy.img, teddy.name, teddy.price, quantity);
@@ -33,7 +33,7 @@ buttonOrder.addEventListener("click", () =>{
     cartArray[alreadyIn].number += quantity;
   }
 
-  localStorage.setItem("cartStored", JSON.stringify(cartArray));
+  localStorage.setItem("OrinocoCartStored", JSON.stringify(cartArray));
 })
 
 let buttonLess = document.getElementById('quantity_less');

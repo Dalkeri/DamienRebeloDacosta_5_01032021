@@ -1,12 +1,14 @@
 let cartArray = document.querySelector("table");
-// let buttonValidate = document.getElementsByClassName("validation");
+let buttonConfirmCart = document.querySelector(".confirmCart");
+let formContainer = document.querySelector(".formContainer");
+
+let buttonConfirmOrder = document.querySelector(".order");
 
 let totalPrice;
 let totalPriceDisplay = document.getElementById("totalPrice");
-// console.log(totalPriceDisplay);
 
 let validation = document.getElementsByClassName("validation");
-let form = document.querySelector("form");
+// let form = document.querySelector("form");
 
 // console.log(cart);
 drawCart();
@@ -125,7 +127,7 @@ function drawLine(item, i){
     numberLess.addEventListener('click', () =>{
         if(item.number > 1){
             item.number --;
-            localStorage.setItem("cartStored", JSON.stringify(cart));
+            localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
             drawCart();
             // console.log(item);
         }
@@ -133,14 +135,14 @@ function drawLine(item, i){
         
     numberMore.addEventListener('click', () =>{
         item.number ++;
-        localStorage.setItem("cartStored", JSON.stringify(cart));
+        localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
         drawCart();
         // console.log(item);
     }); 
 
     supprItem.addEventListener('click', () =>{
         cart.splice(index, 1);
-        localStorage.setItem("cartStored", JSON.stringify(cart));
+        localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
         drawCart();
         console.log("suppr item");
         console.log(cart);
@@ -184,31 +186,26 @@ function sendOrder(data){
         body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(res => console.log(res)) //noms plus parlant
+    .then(res => {
+        console.log(res);
+        localStorage.setItem("OrinocoOrderConfirmation", JSON.stringify(res));
+    }) //noms plus parlant
     .catch(e => console.log(e));
 }
 
 // document.querySelector
 
+buttonConfirmCart.addEventListener("click", () => {
+    console.log("validation du panier");
+    formContainer.style.display = "block";
+});
 
-
-// hidePage[0].addEventListener("click", () => {
-//   console.log("click hidePage");
-//   form.style.display = "none";
-//   hidePage[0].style.display= "none";
-// });
-
-// buttonValidate[0].addEventListener("click", () => {
-//     // hidePage[0].style.display = "block";
-//     form.style.display = "block";
-// });
-
-// form.addEventListener("submit", function (evt) {
-//     evt.preventDefault();
-//     console.log("coucou");
-//     getDatas();
-//     // window.location.href = "confirmation.html";
-//     // return false; 
-// });
+formContainer.addEventListener("submit", evt => {
+    evt.preventDefault();
+    console.log("coucou");
+    getDatas();
+    window.location.href = "confirmation.html";
+    // return false; 
+});
 
 // form prevent default

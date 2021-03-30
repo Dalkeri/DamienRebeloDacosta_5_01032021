@@ -29,54 +29,57 @@
       <main class="container panierContainer">
         <h1 class="flow-text center-align"><strong>Voici votre panier</strong></h1>
 
-        <!-- <div class="row"> -->
-          <!-- <div class="tableContainer"> -->
-            <table class="striped centered responsive-table"></table>
-          <!-- </div> -->
-        <!-- </div> -->
+        <div class="globalContent">
+          <div class="tableContainer">
+            <table class="striped centered"></table>
+          </div>
+        </div>
+
+
         <div class="row" id="validationContainer">
           <div class="center-align">
             <p class="totalPriceContainer">Total: <strong id="totalPrice"></strong></p>
-            <a class="waves-effect waves-light btn">Valider le panier</a>
+            <a class="waves-effect waves-light btn confirmCart">Valider le panier</a>
           </div>
-                    
         </div>
 
-        <div class="row">
+        <div class="row formContainer">
           <form class="col s12">
             <div class="row">
               <div class="input-field col s6">
-                <input placeholder="Prénom" id="first_name" type="text"  maxlength="75" required>
+                <input placeholder="Prénom" id="form__firstName" type="text"  maxlength="75" required>
               </div>
               <div class="input-field col s6">
-                <input placeholder="Nom" id="last_name" type="text" maxlength="75" required>
+                <input placeholder="Nom" id="form__lastName" type="text" maxlength="75" required>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Email" id="email" type="email" class="validate" required>
+                <input placeholder="Email" id="form__email" type="email" class="validate" required>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s6">
-                <input placeholder="Adresse postale" id="adress" type="text" class="validate" required>
+                <input placeholder="Adresse postale" id="form__address" type="text" class="validate" required>
               </div>
               <div class="input-field col s4">
-                <input placeholder="Ville" id="city" type="text" class="validate" required>
+                <input placeholder="Ville" id="form__city" type="text" class="validate" required>
               </div>
               <div class="input-field col s2">
-                <input placeholder="Code postal" id="zipCode" type="text" maxlength="5" minlength="5" pattern="[0-9]*" required>
+                <input placeholder="Code postal" id="form__zipCode" type="text" maxlength="5" minlength="5" pattern="[0-9]*" required>
 
               </div>
             </div>
-            <label>
-              <input type="checkbox" required/>
-              <span>J'accepte les conditions générales de vente</span>
-            </label><br><br>
-            <div class="form__submit">
-              <input class="submit" type="submit" value="zdfzefz">
+            <div class="row center-align ">
+              <label>
+                <input type="checkbox" required/>
+                <span>J'accepte les conditions générales de vente</span>
+              </label><br><br>
+              <input class="submit waves-effect waves-light btn order" type="submit" value="Commander !">
             </div>
+            
+            <!-- <a class="waves-effect waves-light btn order">Commander !</a> -->
           </form>
         </div>
         <!-- </section> -->

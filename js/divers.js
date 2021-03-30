@@ -1,5 +1,5 @@
 const serverAddress = "http://localhost:3000/api/teddies/";
-let cart = (JSON.parse(localStorage.getItem("cartStored")) || [] );
+let cart = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
 let badge = document.getElementById("navbarBadge");
 // console.log(cart.length);
 // console.log(badge);
