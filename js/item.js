@@ -1,8 +1,14 @@
 let params = new URL(document.location).searchParams;
 let idProduit = params.get('id');
 
+let itemGet = document.getElementById("itemGet");
+let itemNotGet = document.getElementById("itemNotGet");
+itemNotGet.style.display = "none";
+
 let teddy;
 let quantity = 1;
+
+let buttonOrder = document.getElementById('order');
 
 
 fetch(serverAddress + idProduit)
@@ -12,10 +18,16 @@ fetch(serverAddress + idProduit)
   // console.log(teddy);
   teddy.item_display();
 })
-.catch(e => console.log(e));
+.catch(e => {
+  console.log("error", e)
+  fetchError();
+});
 
+function fetchError(){
+  itemGet.style.display = "none";
+  itemNotGet.style.display = "block";
+}
 
-let buttonOrder = document.getElementById('order');
 buttonOrder.addEventListener("click", () =>{
   let cartArray = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
 
