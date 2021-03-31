@@ -87,7 +87,7 @@ function drawLine(item, i){
     let numberMore = document.createElement("button");
     let supprItem = document.createElement("i");
 
-    if(item != undefined){
+    // if(item != undefined){
         
         nameCell.textContent = item.name;
         colorCell.textContent = item.color;
@@ -109,11 +109,11 @@ function drawLine(item, i){
         numberCell.appendChild(number);
         numberCell.appendChild(numberMore);
         supprCell.appendChild(supprItem);
-    }
-    else{
-        priceU.textContent = "TOTAL : ";
-        priceT.textContent = totalPrice + "€";
-    }
+    // }
+    // else{
+    //     priceU.textContent = "TOTAL : ";
+    //     priceT.textContent = totalPrice + "€";
+    // }
 
     line.appendChild(nameCell);
     line.appendChild(colorCell);
@@ -125,8 +125,10 @@ function drawLine(item, i){
     // cartArray.appendChild(line); 
     
     numberLess.addEventListener('click', () =>{
+        console.log("clic", item.number);
         if(item.number > 1){
-            item.number --;
+            cart[i].number --;
+            console.log("-", item.number);
             localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
             drawCart();
             updateNavBar();
@@ -134,8 +136,13 @@ function drawLine(item, i){
     }); 
         
     numberMore.addEventListener('click', () =>{
-        item.number ++;
+        console.log("clic", item.number);
+
+        cart[i].number ++;
+        console.log("+", item.number);
+        console.log(cart);
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
+        console.log(cart);
         drawCart();
         updateNavBar();
     }); 
@@ -143,6 +150,7 @@ function drawLine(item, i){
     supprItem.addEventListener('click', () =>{
         cart.splice(index, 1);
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
+
         drawCart();
         updateNavBar();
     })
@@ -188,7 +196,7 @@ function sendOrder(data){
     .then(res => {
         console.log(res);
         localStorage.setItem("OrinocoOrderConfirmation", JSON.stringify(res));
-    }) //noms plus parlant
+    })
     .catch(e => console.log(e));
 }
 

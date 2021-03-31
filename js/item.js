@@ -14,8 +14,6 @@ fetch(serverAddress + idProduit)
 })
 .catch(e => console.log(e));
 
-//catch
-
 
 let buttonOrder = document.getElementById('order');
 buttonOrder.addEventListener("click", () =>{
@@ -32,10 +30,11 @@ buttonOrder.addEventListener("click", () =>{
   else{
     cartArray[alreadyIn].number += quantity;
   }
-
+  // console.log("cartArray item.js", JSON.stringify(cartArray));
   localStorage.setItem("OrinocoCartStored", JSON.stringify(cartArray));
+
   updateNavBar();
-  console.log("coucou");
+  // console.log("coucou");
 })
 
 let buttonLess = document.getElementById('quantity_less');
