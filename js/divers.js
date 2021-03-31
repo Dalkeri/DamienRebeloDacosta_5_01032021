@@ -1,4 +1,7 @@
-const serverAddress = "http://localhost:3000/api/teddies/";
+const serverAddress = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+                        ? "http://localhost:3000/api/teddies/"
+                        : " https://orinoco-drdc.herokuapp.com/api/teddies/";
+
 let cart = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
 // let badge = document.getElementById("navbarBadge");
 let navbarBadge = document.querySelector("#navbarBadge");
