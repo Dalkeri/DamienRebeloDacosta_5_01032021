@@ -196,6 +196,9 @@ function sendOrder(data){
     .then(res => {
         console.log(res);
         localStorage.setItem("OrinocoOrderConfirmation", JSON.stringify(res));
+        localStorage.setItem('OrinocoCartStored', JSON.stringify([]));
+        window.location.href = "confirmation.html";
+
     })
     .catch(e => console.log(e));
 }
@@ -211,8 +214,6 @@ formContainer.addEventListener("submit", evt => {
     evt.preventDefault();
     console.log("coucou");
     getDatas();
-    window.location.href = "confirmation.html";
     // return false; 
 });
 
-// form prevent default

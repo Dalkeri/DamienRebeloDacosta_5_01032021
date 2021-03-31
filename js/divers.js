@@ -15,9 +15,9 @@ function handleCents(price){
 }
 
 function updateNavBar(){
-    cart = JSON.parse(localStorage.getItem("OrinocoCartStored"));
-    console.log("cart", cart);
-    console.log(cart.length);
+    cart = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
+    // console.log("cart", cart);
+    // console.log(cart.length);
     if( cart.length === 0){
         navbarBadge.style.display = "none";
     }
@@ -28,7 +28,7 @@ function updateNavBar(){
         }
         navbarBadge.innerHTML = count;
         navbarBadge.style.display = "inline-block";
-        console.log("new navbar", count);
+        // console.log("new navbar", count);
         // console.log("cart navbar", cart);
     }
 
