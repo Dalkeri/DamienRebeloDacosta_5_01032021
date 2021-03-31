@@ -128,7 +128,7 @@ function drawLine(item, i){
         console.log("clic", item.number);
         if(item.number > 1){
             cart[i].number --;
-            console.log("-", item.number);
+            // console.log("-", item.number);
             localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
             drawCart();
             updateNavBar();
@@ -136,13 +136,13 @@ function drawLine(item, i){
     }); 
         
     numberMore.addEventListener('click', () =>{
-        console.log("clic", item.number);
+        // console.log("clic", item.number);
 
         cart[i].number ++;
-        console.log("+", item.number);
-        console.log("++", cart);
+        // console.log("+", item.number);
+        // console.log("++", cart);
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
-        console.log(cart);
+        // console.log(cart);
         drawCart();
         updateNavBar();
     }); 
@@ -194,7 +194,7 @@ function sendOrder(data){
     })
     .then(res => res.json())
     .then(res => {
-        console.log(res);
+        // console.log(res);
         localStorage.setItem("OrinocoOrderConfirmation", JSON.stringify(res));
         localStorage.setItem('OrinocoCartStored', JSON.stringify([]));
         window.location.href = "confirmation.html";
