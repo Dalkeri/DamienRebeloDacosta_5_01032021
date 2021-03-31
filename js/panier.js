@@ -140,7 +140,7 @@ function drawLine(item, i){
 
         cart[i].number ++;
         console.log("+", item.number);
-        console.log(cart);
+        console.log("++", cart);
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
         console.log(cart);
         drawCart();

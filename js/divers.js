@@ -27,7 +27,7 @@ function updateNavBar(){
             count += cart[i].number;
         }
         navbarBadge.innerHTML = count;
-        // console.log("new navbar", count);
+        console.log("new navbar", count);
         // console.log("cart navbar", cart);
     }
 
