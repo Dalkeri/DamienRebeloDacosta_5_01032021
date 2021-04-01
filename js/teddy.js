@@ -7,7 +7,6 @@ class Teddy{
         this.colors = colors;
         this.img = imageUrl;
         this.selectedColor = colors[0];
-
     }
  
     //affichage spécifique à l'accueil
@@ -88,9 +87,5 @@ class Teddy{
             colorOption.textContent = this.colors[i];
             colorSelect.appendChild(colorOption);
         }
-
-        // document.getElementsByTagName("BODY")[0].appendChild(displayZone); // on ajoute au body
-    }
-
-    
+    }    
 }

@@ -178,8 +178,6 @@ function getDatas(){
         city: city,
         email: email
     }
-
-
     sendOrder({contact, products});
 }
 
@@ -198,7 +196,6 @@ function sendOrder(data){
         localStorage.setItem("OrinocoOrderConfirmation", JSON.stringify(res));
         localStorage.setItem('OrinocoCartStored', JSON.stringify([]));
         window.location.href = "confirmation.html";
-
     })
     .catch(e => console.log(e));
 }

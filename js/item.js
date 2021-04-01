@@ -15,7 +15,6 @@ fetch(serverAddress + idProduit)
 .then(res => res.json())
 .then(res => {
   teddy = new Teddy(res._id, res.name, res.price, res.description, res.colors, res.imageUrl);
-  // console.log(teddy);
   teddy.item_display();
 })
 .catch(e => {
@@ -31,8 +30,14 @@ function fetchError(){
 buttonOrder.addEventListener("click", () =>{
   let cartArray = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
 
-  //facultatif ?
-  let newItem = new cartItem(teddy.id, teddy.selectedColor, teddy.img, teddy.name, teddy.price, quantity);
+  //créer le newItem après le alradyIn ?
+  let newItem = {
+    id : teddy.id,
+    color : teddy.selectedColor,
+    name : teddy.name,
+    price : teddy.price,
+    number : quantity
+  }
 
   let alreadyIn = cartArray.findIndex( (item => item.id === newItem.id) && (item => item.color === newItem.color));
       

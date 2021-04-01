@@ -10,6 +10,7 @@ updateNavBar();
 
 
 function handleCents(price){
+    if(Number.isNaN(price)) return "00,00";
     let priceString = price.toString();
     return priceString.slice(0, priceString.length-2)+","+priceString.slice(priceString.length-2);
 }
