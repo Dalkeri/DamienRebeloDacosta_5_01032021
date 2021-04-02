@@ -31,7 +31,7 @@
 
         <div class="globalContent">
           <div class="tableContainer">
-            <table class="striped centered"></table>
+            <table class="striped centered" id="table"></table>
           </div>
         </div>
 
@@ -39,11 +39,11 @@
         <div class="row" id="validationContainer">
           <div class="center-align">
             <p class="totalPriceContainer">Total: <strong id="totalPrice"></strong></p>
-            <a class="waves-effect waves-light btn confirmCart">Valider le panier</a>
+            <a class="waves-effect waves-light btn" id="confirmCart">Valider le panier</a>
           </div>
         </div>
 
-        <div class="row formContainer">
+        <div class="row" id="formContainer">
           <form class="col s12">
             <div class="row">
               <div class="input-field col s6">
@@ -60,15 +60,11 @@
             </div>
 
             <div class="row">
-              <div class="input-field col s6">
+              <div class="input-field col s7">
                 <input placeholder="Adresse postale" id="form__address" type="text" class="validate" required>
               </div>
-              <div class="input-field col s4">
+              <div class="input-field col s5">
                 <input placeholder="Ville" id="form__city" type="text" class="validate" required>
-              </div>
-              <div class="input-field col s2">
-                <input placeholder="Code postal" id="form__zipCode" type="text" maxlength="5" minlength="5" pattern="[0-9]*" required>
-
               </div>
             </div>
             <div class="row center-align ">
@@ -76,15 +72,11 @@
                 <input type="checkbox" required/>
                 <span>J'accepte les conditions générales de vente</span>
               </label><br><br>
-              <input class="submit waves-effect waves-light btn order" type="submit" value="Commander !">
+              <input class="submit waves-effect waves-light btn" id="order" type="submit" value="Commander !">
             </div>
             
-            <!-- <a class="waves-effect waves-light btn order">Commander !</a> -->
           </form>
         </div>
-        <!-- </section> -->
-
-
 
         <p id="empty" class="flow-text center-align">Malheureusement votre panier est vide... N'hésitez pas à le remplir</p>
       </main>

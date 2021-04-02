@@ -8,7 +8,6 @@
       <link rel="stylesheet" href="../css/materializeOverride.css">
       <script src="../js/scripts.js" defer></script>
       <script src="../js/teddy.js" defer></script>
-      <script src="../js/cartItem.js" defer></script>
       <script src="../js/item.js" defer></script>
       <link rel="icon" href="../img/favicon-orinoco.png" />
       <title>Produit - Orinono</title>
@@ -31,7 +30,7 @@
     <main id="teddy" class="container">
       <h1 class="flow-text center-align"><strong>Voici les informations de cet ours</strong></h1>
 
-      <div class="row" id="itemGet">
+      <div class="row" id="fetchSuccess">
         <div class="col s12 m6 l6 center">
           <img id="teddy__img" src="" alt="" class="">
         </div>
@@ -55,10 +54,11 @@
           </div>
           <!-- <br>  -->
           <a class="waves-effect waves-light btn" id="order">Ajouter au panier</a>
+          <p id="addedToCart">Objet ajouté au panier.</p>
         </div>
       </div>
 
-      <div class="row" id="itemNotGet">
+      <div class="row" id="fetchFail">
         <p class="flow-text center-align">Il semblerait qu'il y ait eu un problème. Cliquez <a href="../index.html"><strong></strong>ici</strong></a> pour revenir à l'accueil.</p>
       </div>
     </main>

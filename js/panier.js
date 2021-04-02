@@ -1,18 +1,16 @@
-let cartArray = document.querySelector("table");
-let buttonConfirmCart = document.querySelector(".confirmCart");
-let formContainer = document.querySelector(".formContainer");
+let cartArray = document.getElementById("table");
+let buttonConfirmCart = document.getElementById("confirmCart");
+let formContainer = document.getElementById("formContainer");
+formContainer.style.display = "none";
 
-let buttonConfirmOrder = document.querySelector(".order");
+let buttonConfirmOrder = document.getElementById("order");
 
 let totalPrice;
 let totalPriceDisplay = document.getElementById("totalPrice");
 
 let validation = document.getElementsByClassName("validation");
-// let form = document.querySelector("form");
 
-// console.log(cart);
 drawCart();
-
 
 function drawCart(){
     cartArray.innerHTML = '';
@@ -28,7 +26,6 @@ function drawCart(){
         let priceTHead = document.createElement("th");
         let deleteItem = document.createElement("th");
 
-        // headerTable.classList.add("center-align");
         nameHead.classList.add("center-align");
         colorHead.classList.add("center-align");
         numberHead.classList.add("center-align");
@@ -59,7 +56,6 @@ function drawCart(){
         }
 
         cartArray.appendChild(body);
-        // buttonValidate[0].style.display = "block";
         totalPriceDisplay.textContent = handleCents(totalPrice) +"€";
     }
     else{
@@ -86,34 +82,27 @@ function drawLine(item, i){
     let number = document.createElement("p");
     let numberMore = document.createElement("button");
     let supprItem = document.createElement("i");
-
-    // if(item != undefined){
         
-        nameCell.textContent = item.name;
-        colorCell.textContent = item.color;
+    nameCell.textContent = item.name;
+    colorCell.textContent = item.color;
 
-        numberLess.textContent = "-";
-        number.textContent = item.number;
-        numberMore.textContent = "+";
-        numberLess.classList.add("quantityButton");
-        number.classList.add("quantity");
-        numberMore.classList.add("quantityButton");
+    numberLess.textContent = "-";
+    number.textContent = item.number;
+    numberMore.textContent = "+";
+    numberLess.classList.add("quantityButton");
+    number.classList.add("quantity");
+    numberMore.classList.add("quantityButton");
 
-        priceUCell.textContent = handleCents(item.price) + "€";
-        priceTCell.textContent = handleCents(item.price * item.number) + "€";
+    priceUCell.textContent = handleCents(item.price) + "€";
+    priceTCell.textContent = handleCents(item.price * item.number) + "€";
 
-        supprItem.classList.add("fas");
-        supprItem.classList.add("fa-trash-alt");
+    supprItem.classList.add("fas");
+    supprItem.classList.add("fa-trash-alt");
 
-        numberCell.appendChild(numberLess);
-        numberCell.appendChild(number);
-        numberCell.appendChild(numberMore);
-        supprCell.appendChild(supprItem);
-    // }
-    // else{
-    //     priceU.textContent = "TOTAL : ";
-    //     priceT.textContent = totalPrice + "€";
-    // }
+    numberCell.appendChild(numberLess);
+    numberCell.appendChild(number);
+    numberCell.appendChild(numberMore);
+    supprCell.appendChild(supprItem);
 
     line.appendChild(nameCell);
     line.appendChild(colorCell);
@@ -121,14 +110,11 @@ function drawLine(item, i){
     line.appendChild(priceUCell);
     line.appendChild(priceTCell);
     line.appendChild(supprCell);
-
-    // cartArray.appendChild(line); 
     
     numberLess.addEventListener('click', () =>{
         console.log("clic", item.number);
         if(item.number > 1){
             cart[i].number --;
-            // console.log("-", item.number);
             localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
             drawCart();
             updateNavBar();
@@ -136,13 +122,8 @@ function drawLine(item, i){
     }); 
         
     numberMore.addEventListener('click', () =>{
-        // console.log("clic", item.number);
-
         cart[i].number ++;
-        // console.log("+", item.number);
-        // console.log("++", cart);
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
-        // console.log(cart);
         drawCart();
         updateNavBar();
     }); 
@@ -150,18 +131,16 @@ function drawLine(item, i){
     supprItem.addEventListener('click', () =>{
         cart.splice(index, 1);
         localStorage.setItem("OrinocoCartStored", JSON.stringify(cart));
-
         drawCart();
         updateNavBar();
     })
-
     return line;
 }
 
 function getDatas(){
     let products = [];
     for(let i = 0; i < cart.length; i++){
-        if(!products.includes(cart[i].id)){
+        for(let j = 0; j < cart[i].number; j++){
             products.push(cart[i].id);
         }
     }
@@ -184,7 +163,6 @@ function getDatas(){
 function sendOrder(data){
     fetch( serverAddress + "order", {
         method: 'POST',
-        // mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -192,15 +170,12 @@ function sendOrder(data){
     })
     .then(res => res.json())
     .then(res => {
-        // console.log(res);
         localStorage.setItem("OrinocoOrderConfirmation", JSON.stringify(res));
         localStorage.setItem('OrinocoCartStored', JSON.stringify([]));
         window.location.href = "confirmation.html";
     })
     .catch(e => console.log(e));
 }
-
-// document.querySelector
 
 buttonConfirmCart.addEventListener("click", () => {
     console.log("validation du panier");
@@ -211,6 +186,5 @@ formContainer.addEventListener("submit", evt => {
     evt.preventDefault();
     console.log("coucou");
     getDatas();
-    // return false; 
 });
 

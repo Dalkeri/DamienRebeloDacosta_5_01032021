@@ -1,13 +1,11 @@
 const serverAddress = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-                        ? "http://localhost:3000/api/teddies/"
-                        : " https://orinoco-drdc.herokuapp.com/api/teddies/";
+                    ? "http://localhost:3000/api/teddies/"
+                    : " https://orinoco-drdc.herokuapp.com/api/teddies/";
 
 let cart = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
-// let badge = document.getElementById("navbarBadge");
-let navbarBadge = document.querySelector("#navbarBadge");
+let navbarBadge = document.getElementById("navbarBadge");
 
 updateNavBar();
-
 
 function handleCents(price){
     if(Number.isNaN(price)) return "00,00";
@@ -17,8 +15,7 @@ function handleCents(price){
 
 function updateNavBar(){
     cart = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
-    // console.log("cart", cart);
-    // console.log(cart.length);
+
     if( cart.length === 0){
         navbarBadge.style.display = "none";
     }
@@ -29,9 +26,6 @@ function updateNavBar(){
         }
         navbarBadge.innerHTML = count;
         navbarBadge.style.display = "inline-block";
-        // console.log("new navbar", count);
-        // console.log("cart navbar", cart);
     }
-
 }
 

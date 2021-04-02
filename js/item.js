@@ -1,15 +1,17 @@
 let params = new URL(document.location).searchParams;
 let idProduit = params.get('id');
 
-let itemGet = document.getElementById("itemGet");
-let itemNotGet = document.getElementById("itemNotGet");
-itemNotGet.style.display = "none";
+let fetchSuccess = document.getElementById("fetchSuccess");
+let fetchFail = document.getElementById("fetchFail");
+fetchFail.style.display = "none";
+
+let addedToCart = document.getElementById("addedToCart");
+addedToCart.style.display = "none";
 
 let teddy;
 let quantity = 1;
 
 let buttonOrder = document.getElementById('order');
-
 
 fetch(serverAddress + idProduit)
 .then(res => res.json())
@@ -23,14 +25,13 @@ fetch(serverAddress + idProduit)
 });
 
 function fetchError(){
-  itemGet.style.display = "none";
-  itemNotGet.style.display = "block";
+  fetchSuccess.style.display = "none";
+  fetchFail.style.display = "block";
 }
 
 buttonOrder.addEventListener("click", () =>{
   let cartArray = (JSON.parse(localStorage.getItem("OrinocoCartStored")) || [] );
 
-  //créer le newItem après le alradyIn ?
   let newItem = {
     id : teddy.id,
     color : teddy.selectedColor,
@@ -47,11 +48,14 @@ buttonOrder.addEventListener("click", () =>{
   else{
     cartArray[alreadyIn].number += quantity;
   }
-  // console.log("cartArray item.js", JSON.stringify(cartArray));
   localStorage.setItem("OrinocoCartStored", JSON.stringify(cartArray));
 
   updateNavBar();
-  // console.log("coucou");
+  
+  addedToCart.style.display = "block";
+  setTimeout(() => {
+    addedToCart.style.display = "none";
+  }, 1000);
 })
 
 let buttonLess = document.getElementById('quantity_less');

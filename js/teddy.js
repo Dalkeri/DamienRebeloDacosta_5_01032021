@@ -17,7 +17,7 @@ class Teddy{
         let card = document.createElement("div");
         let imgContainer = document.createElement("div");
         let img = document.createElement("img");
-        // let cardTitle = document.createElement("span");
+
         let cardContentContainer = document.createElement("div");
         let cardContentName = document.createElement("h5");
         let cardContentDesc = document.createElement("p");
@@ -34,15 +34,13 @@ class Teddy{
         cardAction.classList.add("card-action", "center-align");
 
         img.src = this.img;
-        // cardTitle.textContent = this.name;
         cardContentName.textContent = this.name;
         cardContentDesc.textContent = this.description;
         cardContentPrice.textContent = handleCents(this.price) + "€";
         cardLink.href="./pages/item.html?id=" + this.id;
-        cardLink.textContent = "En savoir plus";
+        cardLink.textContent = "Aller sur la page";
 
         imgContainer.appendChild(img);
-        // imgContainer.appendChild(cardTitle);
 
         cardContentContainer.appendChild(cardContentName);
         cardContentContainer.appendChild(cardContentDesc);
@@ -61,15 +59,12 @@ class Teddy{
 
     //affichage spécifique à la page produit
     item_display(){      
-        let displayZone = document.getElementById("teddy");
 
         let img = document.getElementById("teddy__img");
         let name = document.getElementById("teddy__title");
         let price = document.getElementById("teddy__price");
         let description = document.getElementById("teddy__description");
-        let colorLabel = document.getElementById("colorsLabel");
         let colorSelect = document.getElementById("colorSelect");
-        let orderButton = document.getElementById("order");
 
         img.src = this.img;
 
