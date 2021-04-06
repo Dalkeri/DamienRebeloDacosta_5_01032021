@@ -1,3 +1,6 @@
+let serverIssue = document.getElementById("serverIssue");
+serverIssue.style.display = "none";
+
 fetch(serverAddress)
   .then(res => res.json())
   .then(res => {
@@ -7,4 +10,7 @@ fetch(serverAddress)
       teddy.index_display();
       }
     })
-  .catch(e => console.log(e));
+  .catch(e => {
+    serverIssue.style.display = "block";
+    console.log(e)
+  })

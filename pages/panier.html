@@ -27,10 +27,10 @@
       </nav>
 
       <main class="container panierContainer">
-        <h1 class="flow-text center-align"><strong>Voici votre panier</strong></h1>
+        <h1 class="flow-text center-align" id="title"><strong>Voici votre panier</strong></h1>
 
-        <div class="globalContent">
-          <div class="tableContainer">
+        <div class="globalContent" >
+          <div class="tableContainer" id="tableContainer">
             <table class="striped centered" id="table"></table>
           </div>
         </div>
@@ -79,6 +79,13 @@
         </div>
 
         <p id="empty" class="flow-text center-align">Malheureusement votre panier est vide... N'hésitez pas à le remplir</p>
+
+        <div id="errorRes">
+          <p  class="flow-text center-align">Il semblerait qu'il y ait eu un problème.</p>
+          <p class="flow-text center-align">Merci de réessayer plus tard et de contacter nos équipes si le problème persiste.</p>
+          <p class="flow-text center-align">Cliquez <a href="../index.html"><strong></strong>ici</strong></a> pour revenir à l'accueil.</p>
+        </div>
+       
       </main>
        
       <footer class="page-footer light-blue lighten-1">

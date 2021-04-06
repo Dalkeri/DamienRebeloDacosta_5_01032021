@@ -3,12 +3,17 @@ let buttonConfirmCart = document.getElementById("confirmCart");
 let formContainer = document.getElementById("formContainer");
 formContainer.style.display = "none";
 
+let errorRes = document.getElementById("errorRes");
+errorRes.style.display = "none";
+
 let buttonConfirmOrder = document.getElementById("order");
 
 let totalPrice;
 let totalPriceDisplay = document.getElementById("totalPrice");
 
-let validation = document.getElementsByClassName("validation");
+let validationContainer = document.getElementById("validationContainer");
+let tableContainer = document.getElementById("tableContainer");
+let title = document.getElementById("title");
 
 drawCart();
 
@@ -60,7 +65,6 @@ function drawCart(){
     }
     else{
         let empty = document.getElementById("empty");
-        let validationContainer = document.getElementById("validationContainer")
         validationContainer.style.display = "none";
 
         empty.style.display = "block";
@@ -157,6 +161,11 @@ function getDatas(){
         city: city,
         email: email
     }
+    //si le tableau de produits est nul, on lance l'erreur et on fais pas le sendOrder (on ve lance pas une commande sans produits)
+    if(products.length == 0){
+        handleError();
+        return null;
+    }
     sendOrder({contact, products});
 }
 
@@ -168,13 +177,32 @@ function sendOrder(data){
         },
         body: JSON.stringify(data)
     })
-    .then(res => res.json())
+    .then(res => { 
+        if(res !== 200){
+            handleError();
+            throw new Error("Error while retrieving response from server");
+        }
+        else{
+            return res.json();
+        }
+    })
     .then(res => {
         localStorage.setItem("OrinocoOrderConfirmation", JSON.stringify(res));
         localStorage.setItem('OrinocoCartStored', JSON.stringify([]));
         window.location.href = "confirmation.html";
     })
-    .catch(e => console.log(e));
+    .catch(e => {
+        handleError();
+        console.log(e);
+    });
+}
+
+function handleError(){
+    errorRes.style.display = "block";
+    formContainer.style.display = "none";
+    validationContainer.style.display = "none";
+    tableContainer.style.display = "none";
+    title.style.display = "none";
 }
 
 buttonConfirmCart.addEventListener("click", () => {
