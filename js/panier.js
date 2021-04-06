@@ -178,7 +178,7 @@ function sendOrder(data){
         body: JSON.stringify(data)
     })
     .then(res => { 
-        if(res !== 200){
+        if(!res.ok){
             handleError();
             throw new Error("Error while retrieving response from server");
         }
