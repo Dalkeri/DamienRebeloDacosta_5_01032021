@@ -4,7 +4,12 @@ serverIssue.style.display = "none";
 fetch(serverAddress)
   .then(res => {
         console.log(res);
-        res.json()
+    if(!res.ok){
+      serverIssue.style.display = "block";
+    }
+    else{
+      res.json();
+    }
   })
   .then(res => {
     for(let i = 0; i < res.length; i++){
