@@ -5,7 +5,8 @@ fetch(serverAddress)
   .then(res => {
         console.log(res);
     if(!res.ok){
-      serverIssue.style.display = "block";
+      throw new Error("Error while retrieving response from server");
+
     }
     else{
       res.json();
