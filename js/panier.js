@@ -179,7 +179,6 @@ function sendOrder(data){
     })
     .then(res => { 
         if(!res.ok){
-            handleError();
             throw new Error("Error while retrieving response from server");
         }
         else{

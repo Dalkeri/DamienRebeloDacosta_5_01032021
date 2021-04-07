@@ -14,7 +14,14 @@ let quantity = 1;
 let buttonOrder = document.getElementById('order');
 
 fetch(serverAddress + idProduit)
-.then(res => res.json())
+.then(res => {
+  if(!res.ok){
+    throw new Error("Error while retrieving response from server");
+  }
+  else{
+    return res.json();
+  }
+})
 .then(res => {
   teddy = new Teddy(res._id, res.name, res.price, res.description, res.colors, res.imageUrl);
   teddy.item_display();
