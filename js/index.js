@@ -2,7 +2,10 @@ let serverIssue = document.getElementById("serverIssue");
 serverIssue.style.display = "none";
 
 fetch(serverAddress)
-  .then(res => res.json())
+  .then(res => {
+        console.log(res);
+        res.json()
+  })
   .then(res => {
     for(let i = 0; i < res.length; i++){
       let teddy = new Teddy(res[i]._id, res[i].name, res[i].price, res[i].description, res[i].colors, res[i].imageUrl);
