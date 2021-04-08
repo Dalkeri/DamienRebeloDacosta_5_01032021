@@ -205,12 +205,11 @@ function handleError(){
 }
 
 buttonConfirmCart.addEventListener("click", () => {
-    console.log("validation du panier");
+    //console.log("validation du panier");
     formContainer.style.display = "block";
 });
 
 formContainer.addEventListener("submit", evt => {
     evt.preventDefault();
-    console.log("coucou");
     getDatas();
 });
